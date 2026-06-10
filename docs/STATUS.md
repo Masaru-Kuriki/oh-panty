@@ -1,7 +1,11 @@
 # STATUS
 
 ## 現在フェーズ
-**v1.1 Supabase連携完了 → GitHub Pages公開 待ち**
+**v1.1 リリース完了 → 身内10人配布**
+
+## 公開URL
+- 本番: https://masaru-kuriki.github.io/oh-panty/
+- リポジトリ: https://github.com/Masaru-Kuriki/oh-panty (public)
 
 ## 直近の変更
 - 2026-06-05: プロジェクト作成
@@ -33,6 +37,16 @@
   - テーブル `ohpanty_scores` 作成（id/player_name/level/score/played_at + RLS read/insertポリシー）
   - supabase.js: URL/anon key 設定、テーブル名定数化（`TABLE = 'ohpanty_scores'`）
   - Playwrightで送受信フルテスト合格（Submit → INSERT → SELECT → ランキング表示）
+- 2026-06-10: GitHub公開
+  - 不要画像 `assets/girl_skirt_up.png`（旧シングル版）削除
+  - `git init` → 初回commit → GitHubリポジトリ作成（`masaru-kuriki/oh-panty`、Public）→ push
+  - GitHub Pages 有効化（main branch / root）
+  - 本番URLで Playwright 動作検証合格（200・全画像ロード・reveal挙動OK・エラー0件）
+- 2026-06-10: 音声修正
+  - 症状: 1回目のタップで音声が鳴らないことがある（レースコンディション）
+  - 原因: `unlockAudio()` の muted 先制再生 → `.then(cleanup)` で pause/reset、これが直後の playVoice の音声を pause していた
+  - 対応: audio.js を AN-NEN式（unlock撤廃・play+retry-on-gesture）に書き換え
+  - 検証: Playwrightで1回目タップ時の `play()` 呼び出しが muted=false, volume=1 で1回のみであることを確認
 
 ## 仕様の核（最重要）
 - 完全カン運ゲー、ライフ3制、Lv1=5問 / Lv2=10問 / Lv3=50問
