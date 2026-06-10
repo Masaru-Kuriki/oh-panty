@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>ランキング - OH!PANTY!</title>
+  <link rel="stylesheet" href="style.css?v=1780889013">
+</head>
+<body>
+  <main class="container">
+    <nav class="page-nav">
+      <a href="level.html" class="back-link">← もどる</a>
+      <div></div>
+    </nav>
+
+    <h2 class="select-heading">ランキング Top 10</h2>
+
+    <div class="ranking-tabs">
+      <button class="ranking-tab" data-tab="1">Lv 1</button>
+      <button class="ranking-tab" data-tab="2">Lv 2</button>
+      <button class="ranking-tab" data-tab="3">Lv 3</button>
+    </div>
+
+    <div class="ranking-list" id="rankingList">
+      <div class="ranking-empty">読み込み中…</div>
+    </div>
+
+    <div style="text-align: center; margin-top: 16px; font-size: 11px; color: var(--text-sub);" id="rankingSource"></div>
+  </main>
+
+  <div class="orientation-lock" aria-hidden="true">
+    <div class="orientation-lock-icon">📱</div>
+    <div class="orientation-lock-text">縦向きでプレイしてね</div>
+  </div>
+
+  <script src="player.js?v=1780889013"></script>
+  <script src="supabase.js?v=1780889013"></script>
+  <script src="ranking.js?v=1780889013"></script>
+  <script src="click.js?v=1780889013"></script>
+</body>
+</html>

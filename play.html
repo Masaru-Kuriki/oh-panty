@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>プレイ - OH!PANTY!</title>
+  <link rel="stylesheet" href="style.css?v=1780889013">
+</head>
+<body>
+  <main class="container container--play">
+    <nav class="play-nav">
+      <a href="level.html" class="back-link">← もどる</a>
+      <div class="play-progress">
+        <span class="play-progress-current" id="qCurrent">1</span> / <span id="qTotal">5</span>
+      </div>
+      <div class="play-lives" id="lives" aria-label="ライフ3">
+        <span class="play-life">♥</span>
+        <span class="play-life">♥</span>
+        <span class="play-life">♥</span>
+      </div>
+    </nav>
+
+    <section class="quest">
+      <div class="quest-chip" id="questChip"></div>
+      <div class="quest-info">
+        <div class="quest-label">この色のパンツは だれ？</div>
+        <div class="quest-name" id="questName">—</div>
+      </div>
+    </section>
+
+    <section class="girls-wrap">
+      <div class="girls" id="girls"></div>
+    </section>
+  </main>
+
+  <!-- タップ後のアップ表示オーバーレイ -->
+  <div class="reveal-overlay" id="revealOverlay" hidden>
+    <div class="reveal-stage" id="revealStage">
+      <img src="" alt="" class="girl-img-up" id="revealImgUp">
+    </div>
+    <div class="reveal-bubble" id="revealBubble">OH! PANTY!</div>
+    <div class="reveal-result" id="revealResult">あたり</div>
+  </div>
+
+  <div class="orientation-lock" aria-hidden="true">
+    <div class="orientation-lock-icon">📱</div>
+    <div class="orientation-lock-text">縦向きでプレイしてね</div>
+  </div>
+
+  <script src="data/colors.js?v=1780889013"></script>
+  <script src="player.js?v=1780889013"></script>
+  <script src="audio.js?v=1780889013"></script>
+  <script src="supabase.js?v=1780889013"></script>
+  <script src="play.js?v=1780889013"></script>
+  <script src="click.js?v=1780889013"></script>
+</body>
+</html>

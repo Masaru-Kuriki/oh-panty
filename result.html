@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>結果 - OH!PANTY!</title>
+  <link rel="stylesheet" href="style.css?v=1780889013">
+</head>
+<body>
+  <main class="container container--result">
+    <div class="result-title" id="resultTitle">クリア！</div>
+    <div class="result-score">
+      <div>SCORE</div>
+      <div class="result-score-num" id="resultScore">0</div>
+      <div id="resultMeta" style="font-size: 13px; margin-top: 8px;"></div>
+    </div>
+
+    <div class="result-actions">
+      <button class="result-btn result-btn--primary" id="btnRetry">もう一度</button>
+      <a class="result-btn result-btn--secondary" id="btnRanking" href="#">ランキングを見る</a>
+      <a class="result-btn result-btn--secondary" href="level.html">レベル選択へ</a>
+    </div>
+
+    <div id="submitStatus" style="margin-top: 12px; font-size: 12px; color: var(--text-sub);"></div>
+  </main>
+
+  <div class="orientation-lock" aria-hidden="true">
+    <div class="orientation-lock-icon">📱</div>
+    <div class="orientation-lock-text">縦向きでプレイしてね</div>
+  </div>
+
+  <script src="player.js?v=1780889013"></script>
+  <script src="supabase.js?v=1780889013"></script>
+  <script src="result.js?v=1780889013"></script>
+  <script src="click.js?v=1780889013"></script>
+</body>
+</html>
