@@ -16,7 +16,7 @@
   // ===== 設定 =====
   const INITIAL_LIVES = 3;
   const TEASE_DELAY_MS = 5000;
-  const REVEAL_HOLD_MS = 1800;
+  const REVEAL_HOLD_MS = 3000;
 
   // レベル別: 問題数 と 「問題i での人数」関数
   const LEVELS = {

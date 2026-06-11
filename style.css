@@ -936,48 +936,6 @@ body::before {
   color: #fff;
 }
 
-/* ===== Orientation lock ===== */
-.orientation-lock { display: none; }
-
-@media (orientation: landscape) and (max-height: 500px) {
-  .orientation-lock {
-    display: flex;
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    width: 100dvw;
-    height: 100vh;
-    height: 100dvh;
-    z-index: 9999;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: radial-gradient(ellipse at center, #fff6fa 0%, var(--bg-cream) 40%, var(--bg-deep) 100%);
-    gap: 20px;
-    text-align: center;
-    padding: 40px;
-  }
-  .orientation-lock-icon {
-    font-size: 72px;
-    line-height: 1;
-    animation: orientationRotate 1.8s ease-in-out infinite;
-  }
-  .orientation-lock-text {
-    font-size: 22px;
-    background: linear-gradient(180deg, #ec407a 0%, #6e1c46 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-  }
-}
-
-@keyframes orientationRotate {
-  0%, 100% { transform: rotate(0deg); }
-  50%      { transform: rotate(-90deg); }
-}
-
 /* ===== PC: 600px枠 ===== */
 @media (min-width: 700px) {
   body { background: #e5e5e5; }
