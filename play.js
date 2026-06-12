@@ -5,6 +5,7 @@
   // ===== DOM =====
   const girlsEl       = document.getElementById('girls');
   const questChip     = document.getElementById('questChip');
+  const questLabel    = document.getElementById('questLabel');
   const questName     = document.getElementById('questName');
   const qCurrentEl    = document.getElementById('qCurrent');
   const qTotalEl      = document.getElementById('qTotal');
@@ -259,8 +260,17 @@
     const answerColor = chosenColors[answerIdx];
     answerColorId = answerColor.id;
 
-    questChip.style.backgroundColor = answerColor.hex;
-    questName.textContent = answerColor.name;
+    if (answerColor.id === IVORY_ID) {
+      // ノーパン特例: 「ノーパンの子は　だれ？」 + chip 非表示
+      questChip.style.display = 'none';
+      questLabel.textContent = '';
+      questName.textContent = 'ノーパンの子は　だれ？';
+    } else {
+      questChip.style.display = '';
+      questChip.style.backgroundColor = answerColor.hex;
+      questLabel.textContent = 'この色のパンツは だれ？';
+      questName.textContent = answerColor.name;
+    }
 
     chosenColors.forEach((color) => {
       const btn = document.createElement('button');
