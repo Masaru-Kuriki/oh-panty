@@ -627,41 +627,24 @@ body::before {
 }
 
 .reveal-bubble {
-  position: relative;
-  margin-top: 24px;
-  padding: 12px 24px;
-  background: #fff;
-  border: 3px solid var(--pink-deep);
-  border-radius: 24px;
-  font-size: 28px;
-  font-weight: 900;
-  color: var(--magenta);
-  letter-spacing: 0.06em;
-  box-shadow: 0 8px 24px rgba(216, 27, 96, 0.35);
-  animation: bubblePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
-}
-
-.reveal-bubble::after {
-  content: "";
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-bottom: 14px solid var(--pink-deep);
+  display: block;
+  width: 70%;
+  max-width: 320px;
+  height: auto;
+  margin-top: 16px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(216, 27, 96, 0.35));
+  animation: bubblePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
 }
 
 .reveal-result {
-  margin-top: 16px;
+  margin-bottom: 16px;
   padding: 8px 28px;
   border-radius: 14px;
   font-size: 22px;
   font-weight: 900;
   letter-spacing: 0.2em;
-  animation: bubblePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+  animation: bubblePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s both;
 }
 
 .reveal-result--hit {
