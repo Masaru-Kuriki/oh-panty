@@ -557,17 +557,21 @@ body::before {
 
 .girl:active { transform: scale(0.96); }
 
-.girl-img,
-.girl-img-up {
+.girl-img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
   pointer-events: none;
+  transition: opacity 0.25s ease;
 }
 
 .girl-img-up { opacity: 0; }
+
+/* PEEK演出: 全員スカートUP */
+.girls.is-peeking .girl-img-up   { opacity: 1; }
+.girls.is-peeking .girl-img-down { opacity: 0; }
 
 /* お尻ふりふり（長考演出） */
 .girls.is-teasing .girl {
