@@ -47,7 +47,7 @@ window.COLORS = [
   { id: 44, name: "サーモン",     hex: "#FA8072" },
   { id: 45, name: "コーラル",     hex: "#FF7F50" },
   { id: 46, name: "白",           hex: "#FFFFFF" },
-  { id: 47, name: "アイボリー",   hex: "#FFFFF0" },
+  { id: 47, name: "ノーパン",     hex: "#FFFFF0" },
   { id: 48, name: "ライトグレー", hex: "#D3D3D3" },
   { id: 49, name: "灰色",         hex: "#808080" },
   { id: 50, name: "ダークグレー", hex: "#444444" },
