@@ -28,19 +28,19 @@
 
   // 難易度カーブ（問題進むほど厳しく）
   function peekMs(lv, q) {
-    if (lv === 1) return Math.max(2200, 3000 - (q - 1) * 200);
-    if (lv === 2) return Math.max(1500, 2200 - (q - 1) * 120);
-    return Math.max(800, 1500 - (q - 1) * 35);
+    if (lv === 1) return Math.max(600, 1000 - (q - 1) * 100);  // 1000..600
+    if (lv === 2) return Math.max(400,  700 - (q - 1) *  50);  // 700..400
+    return Math.max(200, 400 - (q - 1) * 10);                  // 400..200
   }
   function shuffleCount(lv, q) {
-    if (lv === 1) return Math.min(5,  3 + Math.floor((q - 1) * 0.5));
-    if (lv === 2) return Math.min(10, 6 + Math.floor((q - 1) * 0.7));
-    return Math.min(22, 12 + Math.floor((q - 1) * 0.5));
+    if (lv === 1) return Math.min(12,  7 + Math.round((q - 1) * 1.25));
+    if (lv === 2) return Math.min(24, 14 + Math.round((q - 1) * 1.67));
+    return Math.min(48, 28 + Math.round((q - 1) * 0.95));
   }
   function swapMs(lv, q) {
-    if (lv === 1) return Math.max(300, 360 - (q - 1) * 12);
-    if (lv === 2) return Math.max(240, 310 - (q - 1) * 10);
-    return Math.max(170, 240 - (q - 1) * 4);
+    if (lv === 1) return Math.max(140, 180 - (q - 1) * 10);   // 180..140
+    if (lv === 2) return Math.max(110, 150 - (q - 1) *  7);   // 150..110
+    return Math.max(80, 110 - (q - 1) * 1.5);                 // 110..80
   }
 
   // ===== URLパラメータ =====
