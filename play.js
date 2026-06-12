@@ -18,6 +18,8 @@
   const TEASE_DELAY_MS = 5000;
   const REVEAL_HOLD_MS = 3000;
   const PEEK_DOWN_TRANSITION_MS = 350;
+  const IVORY_ID = 47;            // ノーパン枠
+  const FORCE_IVORY_PROB = 1 / 3; // お題色になる確率（約33%）
 
   // レベル別: 問題数 と 「問題i での人数」
   const LEVELS = {
@@ -239,7 +241,21 @@
     girlsEl.style.setProperty('--cols', String(colsForCount(n)));
 
     const chosenColors = pickColors(n);
-    const answerIdx = Math.floor(Math.random() * n);
+    let answerIdx;
+    if (Math.random() < FORCE_IVORY_PROB) {
+      // アイボリーをお題に強制（候補に無ければ差し替え）
+      let idx = chosenColors.findIndex(c => c.id === IVORY_ID);
+      if (idx < 0) {
+        const ivory = COLORS.find(c => c.id === IVORY_ID);
+        if (ivory) {
+          idx = Math.floor(Math.random() * chosenColors.length);
+          chosenColors[idx] = ivory;
+        }
+      }
+      answerIdx = idx >= 0 ? idx : Math.floor(Math.random() * n);
+    } else {
+      answerIdx = Math.floor(Math.random() * n);
+    }
     const answerColor = chosenColors[answerIdx];
     answerColorId = answerColor.id;
 
