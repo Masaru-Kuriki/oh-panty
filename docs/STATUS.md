@@ -1,7 +1,7 @@
 # STATUS
 
 ## 現在フェーズ
-**v1.1 リリース完了 → 身内10人配布**
+**v1.2 リリース完了（シャッフル機構 + 難易度調整 + ノーパン枠）→ 身内10人配布**
 
 ## 公開URL
 - 本番: https://masaru-kuriki.github.io/oh-panty/
@@ -47,6 +47,25 @@
   - 原因: `unlockAudio()` の muted 先制再生 → `.then(cleanup)` で pause/reset、これが直後の playVoice の音声を pause していた
   - 対応: audio.js を AN-NEN式（unlock撤廃・play+retry-on-gesture）に書き換え
   - 検証: Playwrightで1回目タップ時の `play()` 呼び出しが muted=false, volume=1 で1回のみであることを確認
+- 2026-06-11: UX微調整
+  - orientation-lock を全HTML/CSSから削除（誤発火クレーム対応）
+  - reveal-overlay の表示時間 1800ms → 3000ms に延長（あたり/はずれが早すぎる対応）
+- 2026-06-12: 演出刷新
+  - めくり画面の吹き出しを `assets/oh!panty!.png`（コミック調画像）に置換、CSS吹き出し（白角丸+三角形）撤去
+  - レイアウト順序: 結果テキスト（上）→ 女の子（中央）→ OH!! PANTY!! 吹き出し（下）
+- 2026-06-15: シャッフル機構導入 + 難易度調整 + ノーパン枠
+  - **シャッフル機構**: 各問題で `PEEK → DOWN → SHUFFLE → TAP → REVEAL` の状態遷移を実装
+    - PEEK: 全員のスカートが上がりパンツ色を一斉公開
+    - SHUFFLE: 2人ずつ位置をtransformでアニメ swap → DOM順序入れ替え
+    - 各girlボタンに down/up 両方の `<img>` を持たせ `.is-peeking` クラスで切替
+    - 正解判定を index ベース → `color.id` ベースに変更（シャッフル後も追跡）
+  - **レベル人数調整**: Lv1=2..6(5問) / Lv2=5..11(7問) / Lv3=30..51(22問)
+  - **難易度カーブ**: 問題進むほど peek短く・shuffle多く・swap速く
+    - Lv1: peek 1000→600ms / shuffle 7→12回 / swap 180→140ms
+    - Lv2: peek 700→400ms / shuffle 14→24回 / swap 150→110ms
+    - Lv3: peek 400→200ms / shuffle 28→48回 / swap 110→80ms
+  - **ノーパン枠**: id=47 の表示名「アイボリー」→「ノーパン」、各問題で 1/3 の確率でお題色に強制
+  - お題テキスト: ノーパンの時は「ノーパンの子は　だれ？」+ chip非表示。それ以外は通常「この色のパンツは だれ？」
 
 ## 仕様の核（最重要）
 - 完全カン運ゲー、ライフ3制、Lv1=5問 / Lv2=10問 / Lv3=50問
